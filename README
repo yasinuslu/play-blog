@@ -1,4 +1,9 @@
-This is your new Play application
+# Multi Blog Application Written in Play Framework
 =====================================
 
-This file will be packaged with your application, when using `play dist`.
+This application written for BBM473 class of Hacettepe University.
+
+- REST API implemented for BBM467 class to reduce the workload
+
+
+##TODO:

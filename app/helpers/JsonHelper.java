@@ -51,4 +51,17 @@ public class JsonHelper {
             }
         }
     }
+
+    public static void handleError(Exception ex, ObjectNode result) {
+        result.put("status", "error");
+        ObjectNode error = (ObjectNode) result.get("error");
+
+        if(error == null) {
+            error = Json.newObject();
+        }
+
+        error.put("exception", ex.getMessage());
+
+        result.put("error", error);
+    }
 }

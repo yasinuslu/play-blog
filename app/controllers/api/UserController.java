@@ -62,4 +62,26 @@ public class UserController extends Controller {
 
         return ok(result);
     }
+
+    public static Result putUser(Long id) {
+        JsonNode json = request().body().asJson();
+        ObjectNode result = Json.newObject();
+
+        try {
+            User user = User.build(json, result);
+
+            if(user == null) {
+                return badRequest(result);
+            }
+
+            user.update(id);
+
+            result.put("data", JsonHelper.toNode(user));
+            return ok(result);
+        } catch(Exception e) {
+            JsonHelper.handleError(e, result);
+
+            return badRequest(result);
+        }
+    }
 }
