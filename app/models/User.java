@@ -49,10 +49,6 @@ public class User extends Model {
                 .findList();
     }
 
-    public static User findById(Long id) {
-        return find.byId(id);
-    }
-
     public static List<User> all() {
         return find.all();
     }

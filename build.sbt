@@ -12,7 +12,8 @@ libraryDependencies ++= Seq(
   cache,
   "org.mindrot" % "jbcrypt" % "0.3m",
   "org.scala-tools" % "scala-stm_2.9.1" % "0.3",
-  "org.hibernate" % "hibernate-entitymanager" % "3.6.9.Final"
+  "org.hibernate" % "hibernate-entitymanager" % "3.6.9.Final",
+  "postgresql" % "postgresql" % "9.1-901.jdbc4"
 )
 
 play.Project.playJavaSettings

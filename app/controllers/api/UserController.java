@@ -24,7 +24,7 @@ public class UserController extends Controller {
         JsonNode json = request().body().asJson();
         ObjectNode result = Json.newObject();
 
-        User user = User.findById(id);
+        User user = User.find.byId(id);
 
         if(user == null) {
             result.put("status", "not-found");
