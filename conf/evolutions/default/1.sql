@@ -8,7 +8,9 @@ create table post (
   title                     varchar(255),
   markdown                  TEXT,
   html                      TEXT,
+  slug                      varchar(255),
   author_id                 bigint,
+  constraint uq_post_slug unique (slug),
   constraint pk_post primary key (id))
 ;
 

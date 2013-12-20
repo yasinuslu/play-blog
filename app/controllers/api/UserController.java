@@ -21,7 +21,6 @@ public class UserController extends Controller {
     }
 
     public static Result getUser(Long id) {
-        JsonNode json = request().body().asJson();
         ObjectNode result = Json.newObject();
 
         User user = User.find.byId(id);
@@ -83,5 +82,20 @@ public class UserController extends Controller {
 
             return badRequest(result);
         }
+    }
+
+    public static Result deleteUser(Long id) {
+        ObjectNode result = Json.newObject();
+
+        User user = User.find.byId(id);
+
+        if(user == null) {
+            result.put("status", "not-found");
+        } else {
+            user.delete();
+            result.put("status", "ok");
+        }
+
+        return ok(result);
     }
 }

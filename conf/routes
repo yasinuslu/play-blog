@@ -3,19 +3,25 @@
 # ~~~~
 
 # Home page
-GET         /                        controllers.Application.index()
+GET           /                        controllers.Application.index()
 
 
 # API
 # User REST API
-GET         /api/users               controllers.api.UserController.all()
-GET         /api/users/search        controllers.api.UserController.searchUser(q: String)
-GET         /api/users/:id           controllers.api.UserController.getUser(id: Long)
-POST        /api/users               controllers.api.UserController.createUser()
-PUT         /api/users/:id           controllers.api.UserController.putUser(id: Long)
+GET           /api/users               controllers.api.UserController.all()
+GET           /api/users/search        controllers.api.UserController.searchUser(q: String)
+GET           /api/users/:id           controllers.api.UserController.getUser(id: Long)
+POST          /api/users               controllers.api.UserController.createUser()
+PUT           /api/users/:id           controllers.api.UserController.putUser(id: Long)
+DELETE        /api/users/:id           controllers.api.UserController.deleteUser(id: Long)
 
 # Post REST API
-GET         /api/posts               controllers.api.PostController.all()
+GET           /api/posts               controllers.api.PostController.all()
+GET           /api/posts/search        controllers.api.PostController.searchPost(q: String)
+GET           /api/posts/:id           controllers.api.PostController.getPost(id: Long)
+POST          /api/posts               controllers.api.PostController.createPost()
+PUT           /api/posts/:id           controllers.api.PostController.putPost(id: Long)
+DELETE        /api/posts/:id           controllers.api.PostController.deletePost(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file            controllers.Assets.at(path="/public", file)
+GET           /assets/*file            controllers.Assets.at(path="/public", file)

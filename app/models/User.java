@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -33,7 +34,8 @@ public class User extends Model {
     @Column(name = "full_name")
     public String name;
 
-    @OneToMany(cascade=CascadeType.ALL, targetEntity = Post.class)
+    @OneToMany(cascade=CascadeType.ALL, targetEntity = Post.class, mappedBy = "author")
+    @JsonManagedReference
     public List<Post> posts;
 
     public static Finder<Long, User> find = new Finder(
