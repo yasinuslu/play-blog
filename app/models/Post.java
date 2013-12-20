@@ -28,4 +28,7 @@ public class Post extends Model {
     public User author;
 
 
+    public static Finder<Long, Post> find = new Finder(Long.class, User.class);
+
+
 }
